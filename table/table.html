@@ -1,0 +1,40 @@
+<div ng-controller="tableCtrl">
+	<div>{{sortParams.sortColumn}} {{sortParams.reverse}}</div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th ng-repeat="header in headers">
+                <a href="#" ng-click="sortParams.sortColumn=header.column;sortParams.reverse=!sortParams.reverse">{{ header.label }}</a>
+            </th>
+            <td>Completed</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in todo.items | checkedItems: showComplete | orderBy:sortParams.sortColumn:sortParams.reverse">
+            <td>{{item.action}}</td>
+            <td>{{item.done}}</td>
+            <td>{{item.deadline | date:'dd.MM.yyyy'}}</td>
+            <td>{{item.estHours}}</td>
+            <td><input type="checkbox" ng-model="item.done"/></td>
+            <td>
+                <button class="btn btn-default"
+                        ng-click="deleteItem(todo.items, item)">Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <!--div class="well"-->
+    <div>
+        <button class="btn btn-primary"
+                ng-click="deleteAllCompletedItems(todo.items)">
+            Clear all completed
+        </button>
+
+        <label>
+            Show Complete
+            <input type="checkbox" ng-model="showComplete"/>
+        </label>
+    </div>
+</div>

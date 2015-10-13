@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="todoApp">
+<head>
+    <meta charset="utf-8"/>
+    <title>Stanislav's TO DO List</title>
+    <link href="vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="vendor/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet"/>
+    <link href="main.css" rel="stylesheet"/>
+</head>
+<body ng-controller="Todo" ng-cloak>
+<div class="container">
+
+    <div ng-include="'header/page-header.html'"></div>
+    <div ng-include="'form/task-input-form.html'"></div>
+    <div task-list/>
+
+</div>
+
+<script src="vendor/angular/angular.min.js"></script>
+<script src="app.js"></script>
+<script src="header/headerCtrl.js"></script>
+<script src="form/formCtrl.js"></script>
+<script src="table/taskList.js"></script>
+<script src="table/tableCtrl.js"></script>
+<script src="table/checkedItems.js"></script>
+
+
+</body>
+</html>
